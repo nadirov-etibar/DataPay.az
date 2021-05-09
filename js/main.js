@@ -135,7 +135,7 @@ let surname = document.getElementsByName("soyad")[0];
 let tel = document.getElementsByName("tel")[0];
 let mail = document.getElementsByName("mail")[0];
 let message = document.getElementsByName("message")[0];
-let p = document.createElement("p");
+// let p = document.createElement("p");
 
 
 send.addEventListener("click", () => {
@@ -156,17 +156,23 @@ send.addEventListener("click", () => {
           }).then(response => {
          return response.json().then(result => {
             if(result.send){
-               p.innerText = "Mesaj müvəfəqiyyətlə göndərildi";
-               p.style.color = "#138cc9";
-               p.style.margin = "10px 0";
-               document.querySelector(".consult-btn").before(p);
+               // p.innerText = "Mesaj müvəfəqiyyətlə göndərildi";
+               //                // p.style.color = "#138cc9";
+               //                // p.style.margin = "10px 0";
+               //                // document.querySelector(".consult-btn").before(p);
+
+               alert("Mesaj müvəfəqiyyətlə göndərildi");
+               location.reload();
             }
 
             else if(result.errorMessage){
-               p.innerText = result.errorMessage;
-               p.style.color = "red";
-               p.style.margin = "10px 0";
-               document.querySelector(".consult-btn").before(p);
+               // p.innerText = result.errorMessage;
+               // p.style.color = "red";
+               // p.style.margin = "10px 0";
+               // document.querySelector(".consult-btn").before(p);
+
+               alert(result.errorMessage);
+               location.reload();
             }
          })
       });
